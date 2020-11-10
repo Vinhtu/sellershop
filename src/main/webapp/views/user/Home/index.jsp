@@ -19,11 +19,7 @@
 		  	<h2 class="head">Featured Products</h2>
 			<div class="top-box">
 			
-			<% int product = (int)request.getAttribute("product") ;%>
-	         ${ product}
-			<% 
-			  for( int i = 0 ; i <  ${ product} ;  i++) {
-			%>
+			 ${product.size()}
 			 <div class="col_1_of_3 span_1_of_3"> 
 			   <a href="single.html">
 				<div class="inner_content clearfix">
@@ -44,7 +40,7 @@
                    </div>
                  </a>
 				</div>
-				<% } %>
+				
 				
 				
 				

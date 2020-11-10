@@ -32,7 +32,7 @@
 					<li class="active"><a href="login.html">Account</a></li> |
 					<li><a href="checkout.html">Wishlist</a></li> |
 					<li><a href="checkout.html">Checkout</a></li> |
-					<li><a href="/SellerShopMVCDA/login">Log In</a></li> |
+					<li><a href="<c:url value="/login?action=login" />">Log In</a></li> |
 					<li><a href="register.html">Sign Up</a></li>
 				</ul>
 			</div>
@@ -197,6 +197,5 @@
         <div class="slidePrev"><span></span></div>
         <div class="slideNext"><span></span></div>
     </div>
-    <!--/slider -->
 </body>
 </html>

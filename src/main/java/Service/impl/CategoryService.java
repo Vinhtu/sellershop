@@ -23,5 +23,11 @@ public class CategoryService implements ICategoryService {
 	public List<CategoryModel> GetCategoryAll() {
 		return categoryDao.GetCategoryAlL();
 	}
+	@Override
+	public CategoryModel save(CategoryModel categoryModel) {
+		Long id_category =  categoryDao.save(categoryModel);
+		System.out.println(id_category + "id");
+		return null;
+	}
 
 }

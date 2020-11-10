@@ -5,13 +5,13 @@ import java.sql.SQLException;
 
 import Model.CategoryModel;
 
-public class CategoryMapper implements RowMapper<CategoryModel> {
+public class CategoryMapper implements IRowMapper<CategoryModel> {
 
 	@Override
 	public CategoryModel mapRow(ResultSet resultSet) {
 		try {	
 			CategoryModel category = new CategoryModel();
-			category.setId(resultSet.getInt("id"));
+			category.setId_category(resultSet.getInt("id"));
 			category.setCode(resultSet.getString("code"));
 			category.setName(resultSet.getString("name"));
 			return category;
@@ -19,7 +19,4 @@ public class CategoryMapper implements RowMapper<CategoryModel> {
 			return null;
 		}
 	}
-	
-	
-
 }

@@ -5,78 +5,79 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import DAO.ICategoryDAO;
 import Mapper.CategoryMapper;
-import Mapper.RowMapper;
+import Mapper.IRowMapper;
 import Model.CategoryModel;
 import Model.ProductModel;
 
-public class CategoryDAO  implements ICategoryDAO {
-
-	
-	public Connection getConnection() {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/sellershopmvc";
-			String user = "root";
-			String password = "";
-			return DriverManager.getConnection(url, user, password);		
-		}catch(ClassNotFoundException | SQLException e) {
-			return null;
-		}
-	}
+public class CategoryDAO  extends AbstractDAO<CategoryModel>  implements ICategoryDAO {
 	
 	@Override
 	public List<CategoryModel> GetCategoryAlL() {
-		List<CategoryModel> results = new ArrayList<>();
 		String sql = "SELECT * FROM category";
-		Connection connection = getConnection();
-		PreparedStatement statement = null;
-		ResultSet resultSet = null;
-		if(connection != null) {
-			try {
-				statement = connection.prepareStatement(sql);
-				resultSet = statement.executeQuery();
-				while(resultSet.next()) {
-					CategoryModel category = new CategoryModel();
-					category.setId_category(resultSet.getInt("id_category"));
-					category.setName(resultSet.getString("name"));
-					category.setCode(resultSet.getString("code"));
-					results.add(category);
-				}	
-				
-			}
-			catch(SQLException e) {
-				return null;
-			}
-			finally {
-				try {
-						if(connection != null) {
-							connection.close();
-						}
-						if(statement != null) {
-							statement.close();
-						}
-						if(resultSet != null) {
-							resultSet.close();
-						}
-				}catch(SQLException e) {
-					return null;
-				}
-				
-			}
-		}
-		
-		
-		return results;
+		return query(sql, new CategoryMapper());
 	}
 
+		@Override
+		public Long save(CategoryModel categoryModel) {
+			String sql  = "INSERT INTO category(id_category, code, name) VALUES (?,?,?) ";
+			return insert(sql, categoryModel.getId_category(), categoryModel.getCode(), categoryModel.getName());
+		}
+//	@Override
+//	public Long save(CategoryModel categoryModel) {
+//		ResultSet resultSet = null;
+//		Long id = null;
+//		Connection  connection = null;
+//		PreparedStatement  statement = null;
+//		try {
+//			String sql  = "INSERT INTO category(id_category, code, name) VALUES (?,?,?) ";
+//           connection = getConnection();
+//           connection.setAutoCommit(false);
+//			statement = connection.prepareStatement(sql,  Statement.RETURN_GENERATED_KEYS);
+//			statement.setLong(1,categoryModel.getId_category() );
+//			statement.setString(2, categoryModel.getCode());
+//			statement.setString(3, categoryModel.getName());
+//			statement.executeUpdate();
+//			resultSet = statement.getGeneratedKeys();
+//			if(resultSet.next()) {
+//				id =  resultSet.getLong(1);
+//			}
+//			connection.commit();
+//			return id;
+//		}catch(SQLException e) {
+//			if(connection != null) {
+//				try {
+//					connection.rollback();
+//				} catch (SQLException e1) {
+//					e1.printStackTrace();
+//				}
+//			}
+//			 e.printStackTrace();
+//		}
+//		finally {
+//			try {
+//				if(connection != null) {
+//					connection.close();
+//				}
+//				if(statement != null) {
+//					statement.close();
+//				}
+//				if(resultSet != null) {
+//					resultSet.close();
+//				}
+//				}catch(SQLException e) {
+//					return null;
+//				}
+//		}
+//	 return null;
+//	
+//	}
 
 
-	
-	
-   
+
 }

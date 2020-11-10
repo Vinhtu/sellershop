@@ -31,14 +31,25 @@ public class LoginController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("views/user/Login/index.jsp");
 			rd.forward(request, response);
 		}
-		
-	
-
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		String action = request.getParameter("action");
+		if(action != null && action.equals("login")) {
+			
+//			UserModel model = FormUtil.toModel(UserModel.class, request);
+			
+			
+			RequestDispatcher rd = request.getRequestDispatcher("views/user/Login/index.jsp");
+			rd.forward(request, response);
+		}
+		else if(action != null && action.equals("logout")) {
+			
+		}else {
+			RequestDispatcher rd = request.getRequestDispatcher("views/user/Login/index.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }
