@@ -32,8 +32,15 @@
 					<li class="active"><a href="login.html">Account</a></li> |
 					<li><a href="checkout.html">Wishlist</a></li> |
 					<li><a href="checkout.html">Checkout</a></li> |
-					<li><a href="<c:url value="/login?action=login" />">Log In</a></li> |
-					<li><a href="register.html">Sign Up</a></li>
+					<c:if test="${not empty ACCOUNTMODEL}">
+							<li><a href="#">Wellcome, ${ACCOUNTMODEL.username}</a></li> |
+							<li><a href="<c:url value="/logout?action=logout" />">Logout</a></li>
+					 </c:if>
+					<c:if test="${empty ACCOUNTMODEL}"> 	
+						<li><a href="<c:url value="/login?action=login" />">Log In</a></li> |
+						<li><a href="<c:url value="/register?action=register" />">Sign Up</a></li>
+					</c:if>
+					
 				</ul>
 			</div>
 			<div class="clear"></div>

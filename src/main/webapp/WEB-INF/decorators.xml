@@ -10,4 +10,13 @@
       <decorator name="admin" page="admins.jsp">
           <pattern>/admin*</pattern>
       </decorator>
+      <decorator name="ad" page="adminAuth.jsp">
+          <pattern>/ad*</pattern>
+      </decorator>
+        <decorator name="ad" page="adminAuth.jsp">
+          <pattern>/ad*</pattern>
+      </decorator>
+        <decorator name="ad" page="adminAuth.jsp">
+          <pattern>/ad*</pattern>
+      </decorator>
 </decorators>

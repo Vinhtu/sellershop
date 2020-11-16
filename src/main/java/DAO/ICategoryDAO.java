@@ -8,4 +8,5 @@ import Model.CategoryModel;
 public interface ICategoryDAO extends GenericDAO<CategoryModel> {
 	   List<CategoryModel> GetCategoryAlL();
 	   Long save(CategoryModel categoryModel);
+	   int getTotalItem();
 }

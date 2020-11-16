@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,9 +42,11 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 			statement = connection.prepareStatement(sql);
 			setParameter(statement, parameters);
 			resultSet = statement.executeQuery();   
+			System.out.print(resultSet);
 			while(resultSet.next()) {
 				results.add(rowMapper.mapRow(resultSet));
 			}
+			System.out.print(results);
 			return results;
 		}catch(SQLException e) {
 			return null;
@@ -81,6 +84,9 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 			  }
 			  else if(parameter instanceof Timestamp ) {
 				  statement.setTimestamp(index,(Timestamp) parameter);
+			  }
+			  else if(parameter == null ) {
+				  statement.setNull(index, Types.NULL);
 			  }
 		}
 		}
@@ -174,6 +180,54 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 		}
 		return id;
 		
+	}
+
+	@Override
+	public int count(String sql, Object... parameters) {
+		ResultSet resultSet = null;
+		Connection  connection = null;
+		PreparedStatement  statement = null;
+		try {
+			int count = 0;
+			connection = getConnection();
+			statement = connection.prepareStatement(sql);
+			setParameter(statement, parameters);
+			resultSet =  statement.executeQuery(); 
+			while(resultSet.next()) {
+              count = resultSet.getInt(1);
+			
+			}
+			connection.commit();
+			return count;
+			
+		}catch(SQLException e) {
+			if(connection != null) {
+				try {
+					connection.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(connection != null) {
+					connection.close();
+				}
+				if(statement != null) {
+					statement.close();
+				}
+				if(resultSet != null) {
+					resultSet.close();
+				}
+				}catch(SQLException e) {
+					e.printStackTrace();
+					return 0;
+				}
+		}
+		return 0;
+	
 	}
 
 }

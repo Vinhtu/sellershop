@@ -13,13 +13,14 @@
 	<div class="wrap">
  
   
-	    <h1>${product.size()}${ categories.size()}sfs</h1>
+
 		<div class="section group">
 		  <div class="cont span_2_of_3">
 		  	<h2 class="head">Featured Products</h2>
 			<div class="top-box">
 			
-			 ${product.size()}
+			<h1>${categories}</h1>
+			<c:forEach var="item" items="${categories}" >
 			 <div class="col_1_of_3 span_1_of_3"> 
 			   <a href="single.html">
 				<div class="inner_content clearfix">
@@ -29,9 +30,9 @@
                     <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
 					   <div class="cart-left">
-							<p class="title">Lorem Ipsum simply</p>
+							<p class="title">${item.code}</p>
 							<div class="price1">
-							  <span class="actual">$12.00</span>
+							  <span class="actual">${item.name}</span>
 							</div>
 						</div>
 						<div class="cart-right"> </div>
@@ -39,7 +40,9 @@
 					 </div>				
                    </div>
                  </a>
-				</div>
+				</div>	
+				
+				</c:forEach>
 				
 				
 				
@@ -374,6 +377,21 @@
 	   <div class="clear"></div>
 	</div>
 	</div>
+	<div class="wrapper">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>jQuery Pagination</h1>
+        <p>Simple pagination using the TWBS pagination JS library. Click the buttons below to navigate to the appropriate content</p>
+        <ul id="pagination-demo" class="pagination-sm"></ul>
+      </div>
+    </div>
+
+    <div id="page-content" class="page-content">Page 1</div>
+  </div>
+</div>
 	</div>
+	
 </body>
 </html>

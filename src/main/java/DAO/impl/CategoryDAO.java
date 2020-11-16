@@ -78,6 +78,12 @@ public class CategoryDAO  extends AbstractDAO<CategoryModel>  implements ICatego
 //	
 //	}
 
+		@Override
+		public int getTotalItem() {
+			String sql = "SELECT count(*) FROM category";
+			return count(sql);
+		}
+
 
 
 }

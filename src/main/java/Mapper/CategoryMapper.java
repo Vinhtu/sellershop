@@ -11,7 +11,7 @@ public class CategoryMapper implements IRowMapper<CategoryModel> {
 	public CategoryModel mapRow(ResultSet resultSet) {
 		try {	
 			CategoryModel category = new CategoryModel();
-			category.setId_category(resultSet.getInt("id"));
+			category.setId_category(resultSet.getInt("id_category"));
 			category.setCode(resultSet.getString("code"));
 			category.setName(resultSet.getString("name"));
 			return category;

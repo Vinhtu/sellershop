@@ -1,6 +1,6 @@
 package Model;
 
-public class CategoryModel {
+public class CategoryModel extends AbstractModel<CategoryModel> {
 	
 	private int id_category;
 	private String code;

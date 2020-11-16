@@ -15,7 +15,7 @@
     <description></description>
     <display-name>HomeController</display-name>
     <servlet-name>HomeController</servlet-name>
-    <servlet-class>Controller.HomeController</servlet-class>
+    <servlet-class>Controller.user.HomeController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HomeController</servlet-name>
@@ -25,20 +25,110 @@
     <description></description>
     <display-name>LoginController</display-name>
     <servlet-name>LoginController</servlet-name>
-    <servlet-class>Controller.LoginController</servlet-class>
+    <servlet-class>Controller.user.LoginController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
-    <url-pattern>/LoginController</url-pattern>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>CartController</display-name>
     <servlet-name>CartController</servlet-name>
-    <servlet-class>Controller.CartController</servlet-class>
+    <servlet-class>Controller.user.CartController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CartController</servlet-name>
     <url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Dashboard</display-name>
+    <servlet-name>Dashboard</servlet-name>
+    <servlet-class>Controller.admin.Dashboard.Dashboard</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Dashboard</servlet-name>
+    <url-pattern>/admin/dashboard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductController</display-name>
+    <servlet-name>ProductController</servlet-name>
+    <servlet-class>Controller.admin.ProductController.ProductController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductController</servlet-name>
+    <url-pattern>/admin/product</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AccountController</display-name>
+    <servlet-name>AccountController</servlet-name>
+    <servlet-class>Controller.admin.AccountController.AccountController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccountController</servlet-name>
+    <url-pattern>/admin/account</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CustomerController</display-name>
+    <servlet-name>CustomerController</servlet-name>
+    <servlet-class>Controller.admin.CustomerController.CustomerController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerController</servlet-name>
+    <url-pattern>/admin/customer</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ForgetPasswordController</display-name>
+    <servlet-name>ForgetPasswordController</servlet-name>
+    <servlet-class>Controller.admin.ForgetPasswordController.ForgetPasswordController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ForgetPasswordController</servlet-name>
+    <url-pattern>/ad/forget-password</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginAdminController</display-name>
+    <servlet-name>LoginAdminController</servlet-name>
+    <servlet-class>Controller.admin.LoginAdminController.LoginAdminController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginAdminController</servlet-name>
+    <url-pattern>/ad/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderController</display-name>
+    <servlet-name>OrderController</servlet-name>
+    <servlet-class>Controller.admin.OrderController.OrderController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderController</servlet-name>
+    <url-pattern>/admin/order</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterController</display-name>
+    <servlet-name>RegisterController</servlet-name>
+    <servlet-class>Controller.admin.RegisterController.RegisterController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterController</servlet-name>
+    <url-pattern>/ad/register</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PromotionController</display-name>
+    <servlet-name>PromotionController</servlet-name>
+    <servlet-class>Controller.admin.PromotionController.PromotionController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PromotionController</servlet-name>
+    <url-pattern>/admin/promotion</url-pattern>
   </servlet-mapping>
 </web-app>

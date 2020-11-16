@@ -8,13 +8,14 @@ public class ProductModel {
 	   private String content;
 	   private String promotion;
 	   private String description;
-	   private int categories;
+	   private String categories;
 	   private String date;
+	   private long[] arrId;
 	public int getId_product() {
 		return id_proudct;
 	}
-	public void setId_product(int id_proudct) {
-		this.id_proudct = id_proudct;
+	public void setId_product(int id_product) {
+		this.id_proudct = id_product;
 	}
 	public String getName() {
 		return name;
@@ -52,10 +53,10 @@ public class ProductModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getCategories() {
+	public String getCategories() {
 		return categories;
 	}
-	public void setCategories(int categories) {
+	public void setCategories(String categories) {
 		this.categories = categories;
 	}
 	public String getDate() {
@@ -63,6 +64,12 @@ public class ProductModel {
 	}
 	public void setDate(String date) {
 		this.date = date;
+	}
+	public long[] getArrId() {
+		return arrId;
+	}
+	public void setArrId(long[] arrId) {
+		this.arrId = arrId;
 	}
 	   
 

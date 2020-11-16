@@ -29,5 +29,10 @@ public class CategoryService implements ICategoryService {
 		System.out.println(id_category + "id");
 		return null;
 	}
+	@Override
+	public int getTotalItem() {
+		// TODO Auto-generated method stub
+		return categoryDao.getTotalItem();
+	}
 
 }
